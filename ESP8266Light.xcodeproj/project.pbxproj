@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412D4E331CB59D3000A7053B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412D4E311CB59D3000A7053B /* SettingsViewController.swift */; };
+		412D4E341CB59D3000A7053B /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 412D4E321CB59D3000A7053B /* SettingsView.xib */; };
 		413B86DA1CB05CCA00A26C54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B86D91CB05CCA00A26C54 /* AppDelegate.swift */; };
-		413B86DC1CB05CCA00A26C54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B86DB1CB05CCA00A26C54 /* ViewController.swift */; };
-		413B86DF1CB05CCA00A26C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413B86DD1CB05CCA00A26C54 /* Main.storyboard */; };
+		413B86DC1CB05CCA00A26C54 /* LightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413B86DB1CB05CCA00A26C54 /* LightViewController.swift */; };
 		413B86E11CB05CCA00A26C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413B86E01CB05CCA00A26C54 /* Assets.xcassets */; };
 		413B86E41CB05CCA00A26C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413B86E21CB05CCA00A26C54 /* LaunchScreen.storyboard */; };
+		419022051CB3FF520014DEB8 /* LightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 419022041CB3FF520014DEB8 /* LightView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		412D4E311CB59D3000A7053B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		412D4E321CB59D3000A7053B /* SettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		413B86D61CB05CCA00A26C54 /* ESP8266Light.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESP8266Light.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		413B86D91CB05CCA00A26C54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		413B86DB1CB05CCA00A26C54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		413B86DE1CB05CCA00A26C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		413B86DB1CB05CCA00A26C54 /* LightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewController.swift; sourceTree = "<group>"; };
 		413B86E01CB05CCA00A26C54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		413B86E31CB05CCA00A26C54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		413B86E51CB05CCA00A26C54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		419022041CB3FF520014DEB8 /* LightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				413B86D91CB05CCA00A26C54 /* AppDelegate.swift */,
-				413B86DB1CB05CCA00A26C54 /* ViewController.swift */,
-				413B86DD1CB05CCA00A26C54 /* Main.storyboard */,
+				413B86DB1CB05CCA00A26C54 /* LightViewController.swift */,
+				419022041CB3FF520014DEB8 /* LightView.xib */,
+				412D4E311CB59D3000A7053B /* SettingsViewController.swift */,
+				412D4E321CB59D3000A7053B /* SettingsView.xib */,
 				413B86E01CB05CCA00A26C54 /* Assets.xcassets */,
 				413B86E21CB05CCA00A26C54 /* LaunchScreen.storyboard */,
 				413B86E51CB05CCA00A26C54 /* Info.plist */,
@@ -122,9 +128,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419022051CB3FF520014DEB8 /* LightView.xib in Resources */,
 				413B86E41CB05CCA00A26C54 /* LaunchScreen.storyboard in Resources */,
 				413B86E11CB05CCA00A26C54 /* Assets.xcassets in Resources */,
-				413B86DF1CB05CCA00A26C54 /* Main.storyboard in Resources */,
+				412D4E341CB59D3000A7053B /* SettingsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +142,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				413B86DC1CB05CCA00A26C54 /* ViewController.swift in Sources */,
+				413B86DC1CB05CCA00A26C54 /* LightViewController.swift in Sources */,
 				413B86DA1CB05CCA00A26C54 /* AppDelegate.swift in Sources */,
+				412D4E331CB59D3000A7053B /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		413B86DD1CB05CCA00A26C54 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				413B86DE1CB05CCA00A26C54 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		413B86E21CB05CCA00A26C54 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -250,6 +250,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ESP8266Light/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lukagabric.ESP8266Light;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -261,6 +262,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ESP8266Light/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lukagabric.ESP8266Light;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -286,6 +288,7 @@
 				413B86EA1CB05CCA00A26C54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
