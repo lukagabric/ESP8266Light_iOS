@@ -43,6 +43,8 @@ class SettingsViewController: UIViewController {
         self.updateSegmentedControl()
         self.updateHttpLabel()
         self.updateUrlTextField()
+        
+        self.urlTextField.becomeFirstResponder()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
