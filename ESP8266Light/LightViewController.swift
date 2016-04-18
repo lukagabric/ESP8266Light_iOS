@@ -18,18 +18,19 @@ class LightViewController: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var configureInfoView: UIView!
     
-    var notificationCenter: NSNotificationCenter {
-        return NSNotificationCenter.defaultCenter()
-    }
-    
     var lightOn: Bool?
     var error: NSError?
 
     var fetchStatusInProgress = false
     var toggleLightInProgress = false
     
-    var baseUrl: NSString? {
-        return NSUserDefaults.standardUserDefaults().stringForKey("baseUrl")
+    var baseUrl: NSURL? {
+        guard let baseUrlString = NSUserDefaults.standardUserDefaults().stringForKey("baseUrl") else { return nil }
+        return NSURL(string: baseUrlString)
+    }
+
+    var notificationCenter: NSNotificationCenter {
+        return NSNotificationCenter.defaultCenter()
     }
     
     //MARK: - Init/Deinit
@@ -125,9 +126,11 @@ class LightViewController: UIViewController {
     }
     
     func toggleLightState() {
-        guard let baseUrl = self.baseUrl, lightOn = self.lightOn else { return }
+        guard let
+            lightOn = self.lightOn,
+            request = self.createRequest(path: "light/\(lightOn ? "off" : "on")")
+            else { return }
         
-        let request = self.createRequest("\(baseUrl)/light/\(lightOn ? "off" : "on")")
         let dataTask = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             dispatch_async(dispatch_get_main_queue(), {
                 self.toggleLightInProgress = false
@@ -150,9 +153,8 @@ class LightViewController: UIViewController {
     }
     
     func fetchStatus() {
-        guard let baseUrl = self.baseUrl else { return }
-
-        let request = self.createRequest("\(baseUrl)/light/status")
+        guard let request = self.createRequest(path: "light/status") else { return }
+        
         let dataTask = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             dispatch_async(dispatch_get_main_queue(), {
                 self.fetchStatusInProgress = false
@@ -182,10 +184,10 @@ class LightViewController: UIViewController {
     
     //MARK: - Convenience
     
-    func createRequest(url: String) -> NSURLRequest {
-        let url = NSURL(string: url)!
-        let request = NSURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 3)
-        return request
+    func createRequest(path path: String) -> NSURLRequest? {
+        guard let url = self.baseUrl?.URLByAppendingPathComponent(path) else { return nil }
+        
+        return NSURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 3)
     }
     
     //MARK: -
